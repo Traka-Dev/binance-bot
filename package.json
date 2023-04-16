@@ -10,5 +10,8 @@
     "license": "ISC",
     "dependencies": {
         "node-binance-api": "^0.13.1"
+    },
+    "devDependencies": {
+        "dotenv": "^16.0.3"
     }
 }

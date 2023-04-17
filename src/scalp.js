@@ -241,7 +241,10 @@ executeStrategy();
 async function getAvailableBalance() {
     // get the futures account information
     try {
-        const account = await binance.futuresAccount();
+        const serverTime = await binance.futuresTime();
+
+        const timestamp = serverTime + 1000;
+        const account = await binance.futuresAccount({ timestamp });
 
         // extract the available balance from the account object
         const availableBalance = account.availableBalance;

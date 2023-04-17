@@ -1,6 +1,7 @@
 require('dotenv').config()
 const Binance = require('node-binance-api');
 
+console.log("BOT START")
 const binance = new Binance().options({
     APIKEY: process.env.BINANCE_API_KEY,
     APISECRET: process.env.BINANCE_API_SECRET,
@@ -65,6 +66,7 @@ function closePosition() {
 
 // Check for the golden cross strategy every minute
 setInterval(() => {
+    console.log("Start Loop")
     if (isGoldenCross()) {
         // Close the current position before opening a new one
         closePosition();

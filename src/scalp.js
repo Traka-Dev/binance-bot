@@ -240,12 +240,18 @@ executeStrategy();
 
 async function getAvailableBalance() {
     // get the futures account information
-    const account = await binance.futuresAccount();
+    try {
+        const account = await binance.futuresAccount();
 
-    // extract the available balance from the account object
-    const availableBalance = account.availableBalance;
+        // extract the available balance from the account object
+        const availableBalance = account.availableBalance;
 
-    // log the available balance to the console
-    console.log(`Available balance: ${availableBalance}`);
-    return availableBalance
+        // log the available balance to the console
+        console.log(`Available balance: ${availableBalance}`);
+        return availableBalance
+    } catch (error) {
+        console.log("error")
+        console.dir(error)
+        return 0
+    }
 }
